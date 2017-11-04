@@ -1,9 +1,15 @@
+import sys
+
+
 def credit():
     """
     Program which takes a credit card number on the command line & returns
     the type of card as a string: AMEX, VISA, MASTERCARD, INVALID.
     """
-    num = int(input("Number: "))  # get credit card number
+    typed = input("Number: ")  # get credit card number
+    if not typed.isdigit():
+        sys.exit("Only digits may be entered.")
+    num = int(typed)
     sum = 0
     digits = 0
     type = "INVALID"
@@ -43,7 +49,7 @@ def credit():
     if sum % 10 != 0:
         type = "INVALID"
     print(type)
-    return 0
+
 
 if __name__ == "__main__":
     credit()
