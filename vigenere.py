@@ -7,13 +7,11 @@ def vigenere():
     at the prompt.  Prints the reulting encoded message using Vigenere's algorithm.
     """
     if len(sys.argv) != 2:
-        print("Must specify alphabetic key to use for encrpyting message")
-        return 1
+        sys.exit("Must specify alphabetic key to use for encrpyting message")
     key_len = len(sys.argv[1])
     for i in range(key_len):
         if not sys.argv[1][i].isalpha():
-            print("Only alhpabetic characters allowed in key")
-            return 1
+            sys.exit("Only alhpabetic characters allowed in key")
     plaintext = input("plaintext: ")
     length = len(plaintext)
     k = 0
@@ -35,7 +33,6 @@ def vigenere():
                 print(c, end="")
                 k += 1
     print()
-    return 0
 
 if __name__ == "__main__":
     vigenere()
